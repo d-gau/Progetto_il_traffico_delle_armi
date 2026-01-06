@@ -1,2 +1,54 @@
 # Progetto_il_traffico_delle_armi
-Questo progetto esplora le dinamiche del commercio globale di armi nel periodo 1950-2023, utilizzando i dati ufficiali del SIPRI (Stockholm International Peace Research Institute). L'obiettivo è mappare le influenze geopolitiche non solo attraverso il volume degli scambi, ma identificando chi detiene il vero potere strategico.
+Descrizione del Progetto
+Questo progetto applica tecniche di Data Science e Network Analysis ai dati del commercio internazionale di armi (SIPRI, 1950-2023). L'obiettivo va oltre la semplice quantificazione dei volumi di vendita: il progetto mira a svelare la struttura delle alleanze geopolitiche, misurando l'influenza strategica e la dipendenza tra le nazioni.
+
+## Analisi e Conclusioni: I 5 Pilastri del Progetto
+Il lavoro si articola in 5 fasi con le rispettive domande che mi sono posto e le conclusioni che ho tratto dall'analisi dei dati. Di seguito sono riportate le metodologie utilizzate e le conclusioni tratte dai dati.
+
+1. La Struttura della Rete Globale (Network Construction)
+   Il mondo è stato modellato come un grafo diretto pesato, dove i nodi sono gli Stati e gli archi rappresentano i flussi di armi misurati in TIV (Trend Indicator Value, l'unità di misura del valore militare   strategico dei vari armamenti).
+
+  Domanda: Com'è strutturato il mercato bellico globale?
+
+  Conclusione: La rete è fortemente asimmetrica e gerarchica. Esiste un ristretto numero di "Hub" (fornitori primari) che serve una vasta platea di "Customers" (clienti). La topologia della rete suggerisce che pochi attori controllano la maggioranza della tecnologia militare avanzata, creando colli di bottiglia strategici.
+
+2. Identificazione delle Fazioni (Community Detection)
+  Utilizzando l'algoritmo di clustering Walktrap, i paesi sono stati raggruppati automaticamente in "comunità" basate sull'intensità e la direzione degli scambi.
+
+  Domanda: Si possono individuare dei blocchi geopolitici?
+
+  Conclusione: L'algoritmo rileva una polarizzazione netta:
+  - Blocco Blu: Guidato dagli USA e dai paesi NATO.
+  - Blocco Rosso: Una sfera d'influenza gravitante attorno alla Russia e in parte alla Cina.
+  
+  Controllando gli schieramenti e prodotti da questa analisi, mi sono reso conto che la divisione delle allenaze non corrispondeva con le mie conoscenze. Questo accade perchè il periodo preso in esame può essere diviso in due macroperiodi in cui le alleanze cambiano in modo significativo: la Guerra Fredda (1950 - 1991), post-patto di Varsavia fino ai nostri giorni.
+  Pertanto ho deciso di rianalizzare i dati in queste 2 finestre temporali
+
+3. La Misurazione del Potere (Algoritmo di Power)
+   È stata implementata una funzione ricorsiva per calcolare il potere di ogni Nazione, una metrica che definisce il potere non in base al volume totale di vendita, ma in base alla dipendenza esclusiva dei propri clienti.
+   Domanda: Chi detiene il vero potere strategico?
+   Conclusione: Un fornitore è potente se i suoi clienti non hanno alternative.
+   - I dati mostrano che la Russia mantiene un indice di potere elevato rispetto al volume economico, poiché fornisce paesi che dipendono interamente dalla sua tecnologia.
+   - Gli USA, pur dominando i volumi, servono clienti più "connessi" (es. Europa), diluendo parzialmente il punteggio di "monopolio puro", ma mantenendo una centrality assoluta.
+
+4. Analisi Temporale: I Cicli del Riarmamento
+Attraverso l'analisi delle serie storiche dei flussi TIV (1950-2024), il progetto mappa l'evoluzione della tensione globale.
+
+Domanda: Quando si verificano i picchi di scambio?
+
+Conclusione: Il mercato delle armi agisce come un sismografo delle relazioni internazionali.
+
+Si evidenzia il crollo post-Guerra Fredda (anni '90) e la costante risalita dal 2010 in poi.
+
+I picchi recenti non sono distribuiti uniformemente ma concentrati in specifici "cluster temporali" che precedono o accompagnano l'esplosione di conflitti regionali, indicando una correlazione tra accumulo di stock (preparazione) e scoppio delle ostilità.
+
+5. Analisi dei Conflitti Attuali (Case Studies: Israele & Ucraina)
+Un focus specifico è dedicato ai teatri di guerra attivi, analizzando i registri di commercio verso Israele e Ucraina.
+
+Domanda: Con le armi di chi si combattono le guerre di oggi?
+
+Conclusione:
+
+Reattività Logistica: Si osservano picchi verticali di forniture (spesso classificate come Aid/Donation) in corrispondenza dell'inizio delle crisi (es. post-2022 per l'Ucraina, post-2023 per Israele).
+
+Composizione dell'Arsenale: L'analisi qualitativa dei mezzi rivela che il sostegno moderno non è solo "ferro" (carri armati), ma sempre più "precisione" (bombe guidate, difesa aerea, sensoristica). Questo rende i belligeranti dipendenti non solo dalla fornitura iniziale, ma dal flusso continuo di munizionamento e supporto tecnico degli alleati.
